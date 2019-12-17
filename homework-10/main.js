@@ -5,9 +5,9 @@ async function userUploadAddOption() {
         let data = await response.json();
 
         for (let value of Object.values(data)) {
-            let user = 'LOGIN:' + value.owner.login + " ID :" + value.node_id;
+            let userLoginId = 'LOGIN:' + value.owner.login + " ID :" + value.node_id;
 
-            let newOption = new Option(user);
+            let newOption = new Option(userLoginId);
             select.append(newOption);
         }
     }
