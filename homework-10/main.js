@@ -2,19 +2,25 @@ async function asynkFunk() {
     const url = `https://api.github.com/gists/public`;
     try {
         const response = await fetch(url);
-        const data = await response.json();
-        let  user = 'login: ' + data[0].owner.login +" id:" + data[0].node_id;
-        alert(user);
-    } catch (error) {
+        let data = await response.json();
+
+        for (let value of Object.values(data)) {
+            let user = 'LOGIN:' + value.owner.login + " ID :" + value.node_id;
+
+            let newOption = new Option(user);
+            select.append(newOption);
+        }
+    }
+     catch (error) {
         console.log(error);
     }
 }
 
- function but() {
+ function buttonOnclick() {
      let button = document.getElementById('button');
      button.addEventListener('click', asynkFunk)
  }
-but();
+buttonOnclick();
 
 
 
@@ -22,10 +28,7 @@ but();
 
 
 
-// await load-users.onclick = () => {
-//     for ( let key in data) {
-//         console.log(key + data[key]);   // data[0].owner.login + data[0].node_id
-//     }
+
 
 
 
