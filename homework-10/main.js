@@ -1,4 +1,4 @@
-async function asynkFunk() {
+async function userUploadAddOption() {
     const url = `https://api.github.com/gists/public`;
     try {
         const response = await fetch(url);
@@ -18,7 +18,7 @@ async function asynkFunk() {
 
  function buttonOnclick() {
      let button = document.getElementById('button');
-     button.addEventListener('click', asynkFunk)
+     button.addEventListener('click', userUploadAddOption)
  }
 buttonOnclick();
 
